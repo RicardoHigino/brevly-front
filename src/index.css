@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@tailwind utilities;
+@theme {
+  --font-sans: "Open Sans", sans-serif;
+}
+
+:root {
+  --color-blue-base: #2c46b1;
+  --color-blue-dark: #2c4091;
+
+  --color-green-1: #3fb950; /* verde real */
+  --color-green-2: #2ea043;
+
+  --color-red-1: #e74c3c; /* vermelho real */
+  --color-red-2: #c0392b;
+}
