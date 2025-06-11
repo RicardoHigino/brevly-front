@@ -30,7 +30,8 @@ export function LinkInfo({ originalUrl, shortUrl, clicks, id, refetch }: LinkInf
   }
 
   const getShortUrl = (shortUrl: string) => {
-    return shortUrl.replace(env.VITE_API_URL, "");
+    const paramUrl = shortUrl.split('/').pop()
+    return paramUrl
   }
 
   return (

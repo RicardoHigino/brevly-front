@@ -3,7 +3,7 @@ import { LinkInfo } from "./link-info";
 import { useQuery } from "@tanstack/react-query";
 import { getLinks } from "../api/get-links";
 import * as ScrollArea from '@radix-ui/react-scroll-area';
-import { SpinnerIcon, LinkSimpleIcon, Link } from "@phosphor-icons/react";
+import { SpinnerIcon, LinkSimpleIcon } from "@phosphor-icons/react";
 
 export function LinkList() {
   const { data: links, refetch, isLoading, isRefetching } = useQuery({
@@ -12,9 +12,8 @@ export function LinkList() {
   })
 
 
-
   return (
-    <div className="flex flex-col items-center justify-center  bg-white rounded-xl max-w-2xl w-full md:w-2/3 h-auto shadow-md border border-gray-200 justify-self-center p-5 gap-2">
+  <div className="flex flex-col items-center justify-center  bg-white rounded-xl max-w-2xl w-full md:w-2/3 shadow-md border border-gray-200 justify-self-center p-5 gap-2">
       <div className="flex items-center justify-between w-full border-b border-gray-200 pb-4">
         <span className="text-xl font-bold text-black w-full">Meus Links</span>
         <DownloadCsvButton disabled={!links || links?.length === 0 || isLoading || isRefetching} />
@@ -28,7 +27,7 @@ export function LinkList() {
           </div>
         ) : (
           <ScrollArea.Root type="scroll" className="overflow-hidden w-full">
-              <ScrollArea.Viewport className="h-64">
+              <ScrollArea.Viewport style={{ height: `500px` }}>
                 {links && links.length > 0 ? (
                   links.map((link: any) => (
                     <LinkInfo originalUrl={link.originalUrl} shortUrl={link.shortUrl} clicks={link.redirectCount} key={link.shortUrl} id={link.id} refetch={refetch}/>

@@ -45,7 +45,7 @@ export function NewLink() {
           onChange={(e) => {
             setOriginalUrl(e.target.value);
             const originalUrlInput = document.querySelector("#originalUrl");
-            if (originalUrlInput) {
+            if (originalUrlInput && originalUrlInput.classList.contains("border-red-500")) {
               originalUrlInput.classList.remove("border-red-500");
             }
           }}
